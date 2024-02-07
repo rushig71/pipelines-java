@@ -4,8 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
-- tenant*
+  branches:
+    include:
+      - main
+      - tenant-1
 
 pool:
   vmImage: ubuntu-latest
