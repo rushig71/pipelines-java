@@ -1,5 +1,4 @@
 ## THIS IS TENANT NUMBER 2
-update to check if works
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
