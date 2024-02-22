@@ -4,10 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-  branches:
-    include:
-      - main
-      - tenant-1
+ - main
 
 pool:
   vmImage: ubuntu-latest
@@ -23,3 +20,13 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'ado-sonar-test'
+    scannerMode: 'Other'
+- task: SonarQubeAnalyze@5
+  inputs:
+    jdkversion: 'JAVA_HOME_11_X64'
+- task: SonarQubeAnalyze@5
+  inputs:
+    jdkversion: 'JAVA_HOME_11_X64'
